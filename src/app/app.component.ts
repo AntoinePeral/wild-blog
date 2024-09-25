@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'wild-blog';
+  title = 'Bienvenue sur le Wild Blog de Antoine Peral !';
 }
