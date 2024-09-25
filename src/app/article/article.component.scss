@@ -1,5 +1,8 @@
 $background-color: #f9f9f9;
 
+.container{
+  max-width: 400px;
+}
 
 .card {
   background-color: $background-color;
@@ -7,25 +10,36 @@ $background-color: #f9f9f9;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
   margin: 20px auto;
-  max-width: 400px;
   text-align: center;
   font-family: Arial, sans-serif;
   transition: transform 0.3s ease;
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .card h2 {
+      color: #333;
+      font-size: 1.3rem;
+      margin-bottom: 10px;
+    }
+    
+    .card p {
+      color: #666;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .comment_block{
+      display: flex;
+      margin: 10px 0;
+
+      p {
+        margin-right:  10px;
+      }
+    }
+
 }
 
-.card:hover {
-  transform: translateY(20px);
-  box-shadow: 0 10px 16px rgba(0, 0, 0, 0.2);
-}
 
-.card h2 {
-  color: #333;
-  font-size: 1.3rem;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #666;
-  font-size: 1rem;
-  line-height: 1.6;
-}

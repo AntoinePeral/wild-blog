@@ -1,14 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-article',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, CommonModule],
   templateUrl: './article.component.html',
   styleUrl: './article.component.scss'
 })
 export class ArticleComponent {
-  title: string = `Qu'est-ce que le Lorem Ipsum?`
-  content: string = `Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.`
+  article = {
+    title: 'Titre de l\'article',
+    author: 'John Doe',
+    content: 'Voici le contenu de l\'article.',
+    image: 'https://via.placeholder.com/350x150',
+    isPublished: true,
+    comment: ''
+  };
 
+
+  togglePublication(): void {
+    this.article.isPublished = !this.article.isPublished;
+  }
 }

@@ -1,8 +1,18 @@
 
-
-<div class="card">
-  <h2>{{title}}</h2>
-  
-  <p>{{content}}</p>
+<div class="container">
+  <div class="card" [hidden]="!article.isPublished">
+    <h2>{{article.title}}</h2>
+    <p>{{article.author}}</p>
+    <p>{{article.content}}</p>
+    <p> <strong>Commentaire :</strong>{{article.comment}}</p>
+    <img [src]="article.image" [alt]="article.title">
+    <div class="comment_block">
+      <p>Ajouter un commentaire : </p>
+      <input type="text" [(ngModel)]="article.comment">
+    </div>
+      <button (click)="togglePublication()">Masquer l'article</button>
+  </div>
+  @if (!article.isPublished) {
+    <button (click)="togglePublication()">Afficher l'article</button>
+  }
 </div>
-
