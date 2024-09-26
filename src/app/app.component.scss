@@ -5,6 +5,99 @@
   box-sizing: border-box;
 }
 
+
+/* app.component.scss */
+
+/* Style pour le conteneur principal */
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
 h1{
   text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2.5em;
 }
+
+
+/* Conteneur des cartes d'articles */
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  
+}
+
+/* Style de la carte (article) */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eee;
+}
+
+/* Bloc de texte à l'intérieur de la carte */
+.text_block {
+  padding: 15px;
+}
+
+
+/* Style pour les articles populaires */
+.popular-article {
+  font-size: 1.8em;
+  text-shadow: 2px 2px 5px gray;
+  font-weight: bold;
+}
+
+.popular-article  p {
+  color: red;
+}
+
+/* Bloc de commentaire */
+.comment_block {
+  padding: 10px 15px;
+  background-color: #f1f1f1;
+  border-top: 1px solid #eee;
+}
+
+.comment_block input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  font-size: 0.9em;
+}
+
+/* Message de non publication */
+.no-article {
+  color: #b6aeae;
+  font-size: 1.2em;
+  text-align: center;
+  margin: 20px;
+  font-weight: bold;
+}
+
