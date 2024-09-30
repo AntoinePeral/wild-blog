@@ -1,6 +1,5 @@
-<p>home-page works!</p>
 
-<h1>Welcome to the wild blog</h1>
+<h1>{{title}}</h1>
 <main class="main">
   @if (isAnyArticlePublished) {
     @for (article of articles; track $index) {
@@ -11,8 +10,7 @@
              <h2 
              [ngClass]="{'popular-article': article.likes > 100}" 
              [ngStyle]="{'color': article.likes > 150 ? popularArticleColor : 'black'}"
-             (click)="goToArticleDetails(article.id, article.title)"
-             >
+             (click)="goToArticleDetails(article.id, article.title)">
              {{article.title}}
             </h2>
              <p>{{article.author}}</p>

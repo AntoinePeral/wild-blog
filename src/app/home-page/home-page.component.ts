@@ -12,10 +12,9 @@ import { Router, RouterLink } from '@angular/router';
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
-  title = 'Bienvenue sur le Wild Blog de Antoine Peral !';
+  title = 'Bienvenue sur le Wild Blog de Antoine!';
   popularArticleColor = 'green';
-
-
+  router: Router = inject(Router);
 
   articles = [
     { 
@@ -70,7 +69,7 @@ export class HomePageComponent {
     article.isPublished = !article.isPublished;
   }
 
-  router: Router = inject(Router);
+
 
   goToArticleDetails(articleId: number, articleTitle: string){
     this.router.navigate(['/article',articleId, articleTitle])
