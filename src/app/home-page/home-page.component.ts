@@ -1,8 +1,8 @@
 import { Article } from '../models/Article';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -68,5 +68,11 @@ export class HomePageComponent {
 
   togglePublication(article : Article): void {
     article.isPublished = !article.isPublished;
+  }
+
+  router: Router = inject(Router);
+
+  goToArticleDetails(articleId: number, articleTitle: string){
+    this.router.navigate(['/article',articleId, articleTitle])
   }
 }
