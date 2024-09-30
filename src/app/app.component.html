@@ -1,15 +1,14 @@
 
 <h1>Welcome to the wild blog</h1>
 <main class="main">
-  @if (isAnyArticlePublished) {
+
     @for (article of articles; track $index) {
      @if (article.isPublished) {
-       <div class="container">
-         <div class="card">
+       <!-- <div class="container"> -->
+         <div class="card" [ngClass]="{'popular-article': article.likes > 100}" 
+          [ngStyle]="{'color': article.likes > 150 ? popularArticleColor : 'black'}">
            <div class="text_block">
-             <h2 
-             [ngClass]="{'popular-article': article.likes > 100}" 
-             [ngStyle]="{'color': article.likes > 150 ? popularArticleColor : 'black'}">
+             <h2> 
              {{article.title}}
             </h2>
              <p>{{article.author}}</p>
@@ -24,11 +23,10 @@
            </div>
           
          </div>
-        </div>
+        <!-- </div> -->
       }
-
+    }@empty{
+      <p class="no-article">no article published</p>
     }
-  } @else {
-    <p class="no-article">No article published</p>
-  }
+  
 </main>

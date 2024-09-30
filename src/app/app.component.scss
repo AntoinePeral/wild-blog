@@ -26,15 +26,15 @@ h1{
 }
 
 
-/* Conteneur des cartes d'articles */
-.container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  width: 100%;
+// /* Conteneur des cartes d'articles */
+// .container {
+//   display: flex;
+//   justify-content: center;
+//   flex-wrap: wrap;
+//   gap: 20px;
+//   width: 100%;
   
-}
+// }
 
 /* Style de la carte (article) */
 .card {
@@ -64,16 +64,21 @@ h1{
   padding: 15px;
 }
 
+h2{
+  font-size: 1.5em;
+}
+
 
 /* Style pour les articles populaires */
 .popular-article {
-  font-size: 1.8em;
   text-shadow: 2px 2px 5px gray;
   font-weight: bold;
 }
 
-.popular-article  p {
-  color: red;
+.popular-article h2 {
+  font-size: 1.8em;
+  text-shadow: 2px 2px 5px gray;
+  font-weight: bold;
 }
 
 /* Bloc de commentaire */

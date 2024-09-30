@@ -4,8 +4,9 @@
     <h2>{{article.title}}</h2>
     <p>{{article.author}}</p>
     <p>{{article.content}}</p>
-    <p> <strong>Commentaire :</strong>{{article.comment}}</p>
+    <p> {{article.isPublished ? "article publié": "article non publié"}}</p>
     <img [src]="article.image" [alt]="article.title">
+    <p> <strong>Commentaire :</strong>{{article.comment}}</p>
     <div class="comment_block">
       <p>Ajouter un commentaire : </p>
       <input type="text" [(ngModel)]="article.comment">
@@ -16,3 +17,5 @@
     <button (click)="togglePublication()">Afficher l'article</button>
   }
 </div>
+
+<mat-slide-toggle>Toggle me!</mat-slide-toggle>
