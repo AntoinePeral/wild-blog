@@ -1,6 +1,7 @@
 
 <h1>{{title}}</h1>
 <main class="main">
+  <a [routerLink]="['/contact']">Page de contact</a>
   @if (isAnyArticlePublished) {
     @for (article of articles; track $index) {
      @if (article.isPublished) {
