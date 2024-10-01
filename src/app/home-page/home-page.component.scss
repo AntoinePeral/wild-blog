@@ -18,3 +18,28 @@ h1{
 app-article {
   width: 100%;
 }
+
+
+// Popup css
+.notification{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 20px;
+  border-radius: 5px;
+  transform: translateY(100%); /* La pop-up commence en dehors de l'écran (en bas) */
+  transition: all 1s ease-in-out; /* Transition sur l'opacité et la position */
+  opacity: 0;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateY(0); /* La pop-up se place dans sa position normale */
+}
+
+.notification.hidden {
+  opacity: 0;
+  transform: translateY(100%); /* La pop-up redescend progressivement */
+}

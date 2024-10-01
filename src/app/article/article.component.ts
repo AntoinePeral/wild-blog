@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { Article } from '../models/Article.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -13,9 +13,14 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class ArticleComponent {
   @Input() article!: Article;
-  router: Router = inject(Router);
+  @Output() likeNotification: EventEmitter<string> = new EventEmitter<string>();
 
+  router: Router = inject(Router);
   newComment : string ='';
+
+  sendNotifcation(){
+    this.likeNotification.emit(`l'article ${this.article.title} vient d'être liké`);
+  }
 
   goToArticleDetails(articleId: number, articleTitle: string){
     this.router.navigate(['/article',articleId, articleTitle])
