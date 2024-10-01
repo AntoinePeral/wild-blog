@@ -1,8 +1,6 @@
 
 <h1>{{title}}</h1>
 <main class="main">
-  <a [routerLink]="['/contact']">Page de contact</a>
-  <a [routerLink]="['/signup']">Page d'inscription</a>
   @if (isAnyArticlePublished) {
     @for (article of articles; track $index) {
      @if (article.isPublished) {
@@ -18,6 +16,7 @@
              <p>{{article.author}}</p>
              <p [ngStyle]="{'color': article.likes > 150 ? popularArticleColor : 'black'}">{{article.content}}</p>
              <a [routerLink]="['/article',article.id,article.title]">Details de l'article</a>
+             <!-- <a routerLink="['/article',article.id,article.title]">Details de l'article</a> -->
              <p>number of likes : {{article.likes}}</p>
            </div>
            <p> <strong>Commentaire :</strong>{{article.comment}}</p>

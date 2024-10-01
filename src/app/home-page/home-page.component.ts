@@ -25,8 +25,6 @@ export class HomePageComponent {
     article.isPublished = !article.isPublished;
   }
 
-
-
   goToArticleDetails(articleId: number, articleTitle: string){
     this.router.navigate(['/article',articleId, articleTitle])
   }

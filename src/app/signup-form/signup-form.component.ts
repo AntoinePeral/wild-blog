@@ -43,8 +43,8 @@ export class SignupFormComponent {
   }
   
   securePasswordValidator(): ValidatorFn {
-    return (control: AbstractControl): ValidationErrors | null => {
-      const value = control.value || '';
+    return (formControl: AbstractControl): ValidationErrors | null => {
+      const value = formControl.value || '';
       
       const hasUpperCase = /[A-Z]/.test(value);
       const hasLowerCase = /[a-z]/.test(value);
