@@ -2,34 +2,8 @@
 <h1>{{title}}</h1>
 <main class="main">
   @if (isAnyArticlePublished) {
-    @for (article of articles; track $index) {
-     @if (article.isPublished) {
-       <div class="container">
-         <div class="card">
-           <div class="text_block">
-             <h2 
-             [ngClass]="{'popular-article': article.likes > 100}" 
-             [ngStyle]="{'color': article.likes > 150 ? popularArticleColor : 'black'}"
-             (click)="goToArticleDetails(article.id, article.title)">
-             {{article.title}}
-            </h2>
-             <p>{{article.author}}</p>
-             <p [ngStyle]="{'color': article.likes > 150 ? popularArticleColor : 'black'}">{{article.content}}</p>
-             <a [routerLink]="['/article',article.id,article.title]">Details de l'article</a>
-             <!-- <a routerLink="['/article',article.id,article.title]">Details de l'article</a> -->
-             <p>number of likes : {{article.likes}}</p>
-           </div>
-           <p> <strong>Commentaire :</strong>{{article.comment}}</p>
-           <img [src]="article.image" [alt]="article.title">
-           <div class="comment_block">
-             <p>Ajouter un commentaire : </p>
-             <input type="text" [(ngModel)]="article.comment">
-           </div>
-          
-         </div>
-        </div>
-      }
-
+    @for (articleFromParent of articles; track $index) {
+      <app-article [article]="articleFromParent"></app-article>
     }
   } @else {
     <p class="no-article">No article published</p>

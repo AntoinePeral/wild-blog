@@ -1,0 +1,29 @@
+
+   @if (article.isPublished) {
+     <div class="container">
+       <div class="card">
+         <div class="text_block">
+           <h2 
+           [ngClass]="{'popular-article': article.likes > 100}" 
+           [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}"
+           (click)="goToArticleDetails(article.id, article.title)">
+           {{article.title}}
+          </h2>
+           <p>{{article.author}}</p>
+           <p [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}">{{article.content}}</p>
+           <a [routerLink]="['/article',article.id,article.title]">Details de l'article</a>
+           <p>number of likes : {{article.likes}}</p>
+         </div>
+         <p> <strong>Commentaire :</strong>{{newComment}}</p>
+         <img [src]="article.image" [alt]="article.title">
+         <div class="comment_block">
+           <p>Ajouter un commentaire : </p>
+           <form #commentForm="ngForm" (ngSubmit)="onSubmit()">
+             <input type="text" [(ngModel)]="article.comment" #commentInput="ngModel" name="commentInput">
+             <button type="submit"> valider </button>
+           </form>
+         </div>
+        
+       </div>
+      </div>
+    }
