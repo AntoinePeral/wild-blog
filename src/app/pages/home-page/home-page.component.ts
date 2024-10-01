@@ -1,9 +1,9 @@
-import { Article } from '../models/Article.model';
+import { Article } from '../../models/Article.model';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
-import {articles} from '../data/dataArticles'
+import {articles} from '../../data/dataArticles'
 import { ArticleComponent } from "../article/article.component";
 
 @Component({
@@ -20,9 +20,9 @@ export class HomePageComponent {
 
   isAnyArticlePublished = articles.some(article=> article.isPublished === true);
 
-  togglePublication(article : Article): void {
-    article.isPublished = !article.isPublished;
-  }
+  // togglePublication(article : Article): void {
+  //   article.isPublished = !article.isPublished;
+  // }
 
 
 }
