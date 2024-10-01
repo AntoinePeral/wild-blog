@@ -12,7 +12,7 @@
 
   <!-- Affichage d'une popup -->
    @if(showPopup){
-     <div class="notification" [ngClass]="{'show': !hideNotification, 'hidden' : hideNotification}">
+     <div class="notification" [ngClass]="{'hidden' : hideNotification}">
       <span>{{messageFromChild}}</span>
      </div>
    }
