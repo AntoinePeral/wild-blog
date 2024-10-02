@@ -28,6 +28,8 @@ export class HomePageComponent {
     this.hideNotification = false; // S'assurer qu'elle n'est pas cachée
     this.showPopup = true;
     this.messageFromChild = message;
+    console.log(this.messageFromChild);
+    
 
     // Après 5 secondes, appliquer la classe pour cacher progressivement
     setTimeout(() => {

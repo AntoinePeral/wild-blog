@@ -19,6 +19,8 @@ export class ArticleComponent {
   newComment : string ='';
 
   sendNotifcation(){
+    console.log('hola');
+    
     this.likeNotification.emit(`l'article ${this.article.title} vient d'être liké`);
   }
 
