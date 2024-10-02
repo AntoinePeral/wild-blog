@@ -16,12 +16,12 @@ export class ArticleComponent {
   @Output() likeNotification: EventEmitter<string> = new EventEmitter<string>();
 
   router: Router = inject(Router);
-  newComment : string ='';
+  newCommentList : string[] =[];
 
   sendNotifcation(){
     console.log('hola');
-    
-    this.likeNotification.emit(`l'article ${this.article.title} vient d'être liké`);
+    this.article.likes++;
+    this.likeNotification.emit(`l'article "${this.article.title}" vient d'être liké ❤`);
   }
 
   goToArticleDetails(articleId: number, articleTitle: string){
@@ -31,7 +31,7 @@ export class ArticleComponent {
   onSubmit(){
     console.log('hello');
     // Ajout du commentaire
-    this.newComment = this.article.comment;
+    this.newCommentList.push(this.article.comment);
     // Suppression du commentaire dans le input pour rénitialiser le champ
     this.article.comment = '';
   }

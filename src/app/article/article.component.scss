@@ -1,76 +1,182 @@
-
 /* Conteneur des cartes d'articles */
 .container {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 30px;
   width: 100%;
-  
+  padding: 20px;
+  background-color: #f4f4f9;
 }
 
 /* Style de la carte (article) */
 .card {
   background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  width: 450px;
+  width: 100%;
+  max-width: 400px; /* Limite la largeur des cartes */
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative; /* Pour permettre des éléments flottants */
 }
 
 .card:hover {
-  transform: scale(1.02);
+  transform: scale(1.03);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
   width: 100%;
-  height: auto;
-  border-bottom: 1px solid #eee;
+  height: 250px;
+  object-fit: cover;
+  border-bottom: 2px solid #eee;
+  padding: 20px;
 }
 
 /* Bloc de texte à l'intérieur de la carte */
 .text_block {
-  padding: 15px;
+  padding: 20px;
+  font-family: 'Roboto', sans-serif;
 }
 
+/* Amélioration du bloc de détails */
+.details_block {
+  margin-top: 10px;
+  background-color: #ffffff;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  border-top: 2px solid #eee;
+  padding-top: 10px;
+}
 
-/* Style pour les articles populaires */
-.popular-article {
-  font-size: 1.8em;
-  text-shadow: 2px 2px 5px gray;
+.author_likes_block{
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  font-weight:lighter;
+  color: #333;
+}
+
+.details_block p {
+  margin: 0;
+  font-size: 0.95em;
+  color: #555;
+}
+
+/* details css */
+.details_block a {
+  text-decoration: none;
+  color: #007bff;
   font-weight: bold;
+  font-size: 0.8em;
+  transition: color 0.3s ease;
 }
 
-.popular-article  p {
-  color: red;
+.details_block a:hover {
+  color: #0056b3;
 }
 
 /* Bloc de commentaire */
 .comment_block {
-  padding: 10px 15px;
-  background-color: #f1f1f1;
-  border-top: 1px solid #eee;
+  padding:0 0 10px 20px;
 }
 
-.comment_block input {
-  width: 80%;
-  padding: 8px;
+.comment_block_text {
+  border: #007bff 1px solid;
+  margin: 5px;
+  padding: 15px;
+  border-radius: 1em;
+  background-color: #f0f8ff;
+}
+
+/* Bloc d'ajout de commentaire */
+.comment_input_block {
+  padding: 15px;
+  background-color: #ffffff;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.comment_input_block input {
+  width: 100%;
+  padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-top: 5px;
-  font-size: 0.9em;
+  border: 1px solid #ddd;
+  font-size: 0.95em;
+  transition: border-color 0.3s ease;
+}
+
+.comment_input_block input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.comment_input_block button {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.comment_input_block button:hover {
+  background-color: #218838;
 }
 
 /* Message de non publication */
 .no-article {
   color: #b6aeae;
-  font-size: 1.2em;
+  font-size: 1.4em;
   text-align: center;
-  margin: 20px;
+  margin: 40px;
   font-weight: bold;
 }
 
+/* Style pour les articles populaires */
+.popular-article {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 1.6em;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Form styling */
+form {
+  display: flex;
+  gap: 20px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .container {
+    gap: 20px;
+  }
+
+  .text_block h2 {
+    font-size: 1.4em;
+  }
+
+  .comment_input_block input {
+    font-size: 0.85em;
+  }
+
+  .details_block {
+    padding: 10px;
+  }
+}

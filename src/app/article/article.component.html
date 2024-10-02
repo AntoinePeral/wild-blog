@@ -9,14 +9,26 @@
            (click)="goToArticleDetails(article.id, article.title)">
            {{article.title}}
           </h2>
-           <p>{{article.author}}</p>
-           <p [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}">{{article.content}}</p>
-           <a [routerLink]="['/article',article.id,article.title]">Details de l'article</a>
-           <p>number of likes : {{article.likes}}</p>
+          <div class="details_block">
+            <div class="author_likes_block">
+              <p id="author-name"> <i>Author : {{article.author}}</i></p>
+              <p><i>number of likes : {{article.likes}} ❤</i></p>
+            </div>
+            <p [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}">{{article.content}}</p>
+            <a [routerLink]="['/article',article.id,article.title]">Details de l'article</a>
+          </div>
          </div>
-         <p> <strong>Commentaire :</strong>{{newComment}}</p>
-         <img [src]="article.image" [alt]="article.title">
          <div class="comment_block">
+           <p > <strong>Commentaire :</strong>
+            @for (comment of newCommentList; track $index) {
+              <div class="comment_block_text"> 
+                <p>{{comment}}</p>
+              </div>
+            }
+          </p>
+         </div>
+         <img [src]="article.image" [alt]="article.title">
+         <div class="comment_input_block">
            <p>Ajouter un commentaire : </p>
            <form #commentForm="ngForm" (ngSubmit)="onSubmit()">
              <input type="text" [(ngModel)]="article.comment" #commentInput="ngModel" name="commentInput">
