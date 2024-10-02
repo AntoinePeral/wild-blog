@@ -29,9 +29,8 @@ app-article {
   color: white;
   padding: 20px;
   border-radius: 5px;
-  transform: translateY(100%); /* La pop-up commence en dehors de l'écran (en bas) */
   transition: all 1s ease-in-out; /* Transition sur l'opacité et la position */
-  opacity: 0;
+  opacity: 1;
 }
 
 .notification.show {
