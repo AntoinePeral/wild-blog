@@ -42,5 +42,12 @@ export class HomePageComponent {
     }, 6000); // 1 
   }
 
+  togglePublication(article: Article): void {
+    article.isPublished = !article.isPublished;
+    this.isAnyArticlePublished = articles.some(article=> article.isPublished === true);
+    console.log(article.isPublished);
+    console.log(this.isAnyArticlePublished);
+  }
+
 
 }

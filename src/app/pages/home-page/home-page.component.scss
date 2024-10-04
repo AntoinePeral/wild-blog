@@ -42,3 +42,19 @@ app-article {
   opacity: 0;
   transform: translateY(100%); /* La pop-up redescend progressivement */
 }
+
+
+button {
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #218838;
+}
