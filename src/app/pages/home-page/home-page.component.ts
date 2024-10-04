@@ -1,10 +1,10 @@
-import { Article } from '../models/Article.model';
+import { Article } from '../../models/Article.model';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Router, RouterLink } from '@angular/router';
-import {articles} from '../data/dataArticles'
-import { ArticleComponent } from "../article/article.component";
+import { RouterLink } from '@angular/router';
+import {articles} from '../../data/dataArticles'
+import { ArticleComponent } from "../../components/article/article.component";
 
 @Component({
   selector: 'app-home-page',
@@ -24,7 +24,7 @@ export class HomePageComponent {
   showPopup : boolean = false; // Pour gérer l'affichage de la popup
   hideNotification = false; // Pour gérer l'effet de disparition
 
-  handleNotification(message: string): void{
+  dataRecieveFromChild(message: string): void{
     this.hideNotification = false; // S'assurer qu'elle n'est pas cachée
     this.showPopup = true;
     this.messageFromChild = message;
@@ -40,10 +40,6 @@ export class HomePageComponent {
     setTimeout(() => {
       this.showPopup = false; // Masquer complètement la pop-up
     }, 6000); // 1 
-  }
-
-  togglePublication(article : Article): void {
-    article.isPublished = !article.isPublished;
   }
 
 

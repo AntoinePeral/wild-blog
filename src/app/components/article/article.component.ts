@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { Article } from '../models/Article.model';
+import { Article } from '../../models/Article.model';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
@@ -13,19 +13,23 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class ArticleComponent {
   @Input() article!: Article;
-  @Output() likeNotification: EventEmitter<string> = new EventEmitter<string>();
+  @Output() dataEmitFromChild: EventEmitter<string> = new EventEmitter<string>();
 
   router: Router = inject(Router);
   newCommentList : string[] =[];
 
-  sendNotifcation(){
+  sendDataToParent(){
     console.log('hola');
     this.article.likes++;
-    this.likeNotification.emit(`l'article "${this.article.title}" vient d'être liké ❤`);
+    this.dataEmitFromChild.emit(`l'article "${this.article.title}" vient d'être liké ❤`);
   }
 
   goToArticleDetails(articleId: number, articleTitle: string){
     this.router.navigate(['/article',articleId, articleTitle])
+  }
+
+  togglePublication(): void {
+    this.article.isPublished = !this.article.isPublished;
   }
 
   onSubmit(){

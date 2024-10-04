@@ -4,7 +4,7 @@
 
   @if (isAnyArticlePublished) {
     @for (articleFromParent of articles; track $index) {
-      <app-article [article]="articleFromParent" (likeNotification)="handleNotification($event)"></app-article>
+      <app-article [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article>
     }
   } @else {
     <p class="no-article">No article published</p>

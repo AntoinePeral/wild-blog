@@ -1,4 +1,6 @@
-
+@if (!article.isPublished){
+  <button (click)="togglePublication()">Afficher l'article : {{article.title}}</button>
+}
    @if (article.isPublished) {
      <div class="container">
        <div class="card">
@@ -34,8 +36,11 @@
              <input type="text" [(ngModel)]="article.comment" #commentInput="ngModel" name="commentInput">
              <button type="submit"> valider </button>
            </form>
-           <button (click)="sendNotifcation()">Liker la publication</button>
+           <button (click)="sendDataToParent()">Liker la publication</button>
+           <button (click)="togglePublication()">Masquer la publication</button>
          </div>
        </div>
       </div>
     }
+
+    
