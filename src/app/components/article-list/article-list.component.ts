@@ -4,6 +4,7 @@ import {ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail
 import { Article } from '../../models/Article.model';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-article-list',
@@ -18,6 +19,7 @@ export class ArticleListComponent {
   // Get data from httpClient
   private http = inject(HttpClient);
   public articles: Article[] = [];
+  articleListSubscription!: Subscription;
 
   public isAnyArticlePublished!: boolean;
   public messageFromChild = '';
@@ -29,13 +31,19 @@ export class ArticleListComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.http.get<Article[]>('http://localhost:3000/articles').subscribe(data =>{
+    this.articleListSubscription = this.http.get<Article[]>('http://localhost:3000/articles').subscribe(data =>{
       this.articles = data;
       this.isAnyArticlePublished = this.articles.some(article=> article.isPublished === true)
       console.log("Données reçus", data, this.articles);
       
     })
   }
+
+  ngOnDestroy(): void {
+    //Called once, before the instance is destroyed.
+    //Add 'implements OnDestroy' to the class.
+    this.articleListSubscription.unsubscribe();
+    }
 
   dataRecieveFromChild(message: string): void{
     this.hideNotification = false; // S'assurer qu'elle n'est pas cachée
