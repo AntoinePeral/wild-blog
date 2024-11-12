@@ -1,0 +1,15 @@
+<p>article-list works!</p>
+@if (isAnyArticlePublished) {
+  @for (articleFromParent of articles; track $index) {
+    <app-article-thumbnail [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article-thumbnail>
+  }
+} @else {
+  <p class="no-article">No article published</p>
+}
+
+<!-- Affichage d'une popup -->
+ @if(showPopup){
+   <div class="notification" [ngClass]="{'hidden' : hideNotification}">
+    <span>{{messageFromChild}}</span>
+   </div>
+ }

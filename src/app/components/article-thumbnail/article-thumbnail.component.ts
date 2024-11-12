@@ -5,13 +5,13 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-article',
+  selector: 'app-article-thumbnail',
   standalone: true,
   imports: [FormsModule, CommonModule, RouterLink],
-  templateUrl: './article.component.html',
-  styleUrl: './article.component.scss'
+  templateUrl: './article-thumbnail.component.html',
+  styleUrl: './article-thumbnail.component.scss'
 })
-export class ArticleComponent {
+export class ArticleThumbnailComponent {
   @Input() article!: Article;
   @Output() dataEmitFromChild: EventEmitter<string> = new EventEmitter<string>();
 

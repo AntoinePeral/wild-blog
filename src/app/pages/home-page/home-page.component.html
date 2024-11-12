@@ -2,19 +2,6 @@
 <h1>{{title}}</h1>
 <main class="main">
 
-  @if (isAnyArticlePublished) {
-    @for (articleFromParent of articles; track $index) {
-      <app-article [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article>
-    }
-  } @else {
-    <p class="no-article">No article published</p>
-  }
-
-  <!-- Affichage d'une popup -->
-   @if(showPopup){
-     <div class="notification" [ngClass]="{'hidden' : hideNotification}">
-      <span>{{messageFromChild}}</span>
-     </div>
-   }
+<app-article-list></app-article-list>
 
 </main>
