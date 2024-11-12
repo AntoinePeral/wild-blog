@@ -20,7 +20,7 @@ export class ArticleThumbnailComponent {
 
   sendDataToParent(){
     console.log('hola');
-    this.article.likes++;
+    this.article.isLiked++;
     this.dataEmitFromChild.emit(`l'article "${this.article.title}" vient d'être liké ❤`);
   }
 

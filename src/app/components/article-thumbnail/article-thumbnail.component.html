@@ -6,18 +6,18 @@
        <div class="card">
          <div class="text_block">
            <h2 
-           [ngClass]="{'popular-article': article.likes > 100}" 
-           [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}"
+           [ngClass]="{'popular-article': article.likeCount > 100}" 
+           [ngStyle]="{'color': article.likeCount > 150 ? 'green' : 'black'}"
            (click)="goToArticleDetails(article.id, article.title)">
            {{article.title}}
           </h2>
           <div class="details_block">
             <div class="author_likes_block">
               <p id="author-name"> <i>Author : {{article.author}}</i></p>
-              <p><i>number of likes : {{article.likes}} ❤</i></p>
+              <p><i>number of likes : {{article.likeCount}} ❤</i></p>
             </div>
-            <p [ngStyle]="{'color': article.likes > 150 ? 'green' : 'black'}">{{article.content}}</p>
-            <a [routerLink]="['/article',article.id,article.title]">Details de l'article</a>
+            <p [ngStyle]="{'color': article.likeCount > 150 ? 'green' : 'black'}">{{article.content}}</p>
+            <a [routerLink]="['/articles',article.id]">Details de l'article</a>
           </div>
          </div>
          <div class="comment_block">

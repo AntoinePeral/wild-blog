@@ -9,6 +9,7 @@ export const routes: Routes = [
   {path:'', component:HomePageComponent},
   {path:'contact', component: ContactPageComponent},
   {path:'signup', component: SignupFormComponent},
-  {path:'article/:id/:title', component:ArticlePageComponent},
+  // {path:'article/:id/:title', component:ArticlePageComponent},
+  {path:'articles/:id', component:ArticlePageComponent},
   {path:'**', component:NotFoundComponent}
 ];

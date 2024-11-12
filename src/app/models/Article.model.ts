@@ -7,5 +7,7 @@ export interface Article{
   imageTitle:  string; 
   isPublished: boolean; 
   comment:  string; 
-  likes: number; 
+  isLiked: number; 
+  likeCount: number;
+  categoryName: string;
 }

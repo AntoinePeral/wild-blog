@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {ArticleThumbnailComponent } from '../article-thumbnail/article-thumbnail.component';
-import { articles } from '../../data/dataArticles';
+//import { articles } from '../../data/dataArticles';
 import { Article } from '../../models/Article.model';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-article-list',
@@ -13,13 +14,28 @@ import { CommonModule } from '@angular/common';
 })
 export class ArticleListComponent {
 
-  articles : Article[] = articles;
-  isAnyArticlePublished = articles.some(article=> article.isPublished === true);
-  messageFromChild = '';
+  // articles : Article[] = articles;
+  // Get data from httpClient
+  private http = inject(HttpClient);
+  public articles: Article[] = [];
+
+  public isAnyArticlePublished!: boolean;
+  public messageFromChild = '';
 
   // Gestion d'une popup
-  showPopup : boolean = false; // Pour gérer l'affichage de la popup
-  hideNotification = false; // Pour gérer l'effet de disparition
+  public showPopup : boolean = false; // Pour gérer l'affichage de la popup
+  public hideNotification = false; // Pour gérer l'effet de disparition
+
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.http.get<Article[]>('http://localhost:3000/articles').subscribe(data =>{
+      this.articles = data;
+      this.isAnyArticlePublished = this.articles.some(article=> article.isPublished === true)
+      console.log("Données reçus", data, this.articles);
+      
+    })
+  }
 
   dataRecieveFromChild(message: string): void{
     this.hideNotification = false; // S'assurer qu'elle n'est pas cachée
@@ -41,8 +57,12 @@ export class ArticleListComponent {
 
   togglePublication(article: Article): void {
     article.isPublished = !article.isPublished;
-    this.isAnyArticlePublished = articles.some(article=> article.isPublished === true);
+    this.isAnyArticlePublished = this.articles.some(article=> article.isPublished === true);
     console.log(article.isPublished);
     console.log(this.isAnyArticlePublished);
+  }
+
+  getArticles(): void{
+
   }
 }
