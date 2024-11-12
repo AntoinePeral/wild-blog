@@ -21,7 +21,6 @@ export class ArticleListComponent {
   public articles: Article[] = [];
   articleListSubscription!: Subscription;
 
-  public isAnyArticlePublished!: boolean;
   public messageFromChild = '';
 
   // Gestion d'une popup
@@ -61,15 +60,12 @@ export class ArticleListComponent {
 
   togglePublication(article: Article): void {
     article.isPublished = !article.isPublished;
-    this.isAnyArticlePublished = this.articles.some(article=> article.isPublished === true);
     console.log(article.isPublished);
-    console.log(this.isAnyArticlePublished);
   }
   
   getArticles(){
     this.articleListSubscription = this.http.get<Article[]>('http://localhost:3000/articles').subscribe(data =>{
       this.articles = data;
-      this.isAnyArticlePublished = this.articles.some(article=> article.isPublished === true)
       console.log("Données reçus", data, this.articles);
     })
   }

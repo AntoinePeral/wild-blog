@@ -20,3 +20,20 @@
   opacity: 0;
   transform: translateY(100%); /* La pop-up redescend progressivement */
 }
+
+
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* Aligne les boutons verticalement */
+  align-items: flex-start; /* Aligne les boutons à gauche */
+  gap: 10px; /* Espace entre chaque bouton */
+}
+
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 80%;
+  margin-bottom: 1em;
+}

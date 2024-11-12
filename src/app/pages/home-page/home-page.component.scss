@@ -15,8 +15,10 @@ h1{
   font-size: 2.5em;
 }
 
-app-article {
+app-article-list {
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 

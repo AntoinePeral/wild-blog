@@ -1,9 +1,18 @@
-<p>article-list works!</p>
-@if (isAnyArticlePublished) {
-  @for (articleFromParent of articles; track $index) {
-    <app-article-thumbnail [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article-thumbnail>
+
+<div class="button-section">
+@for (articleFromParent of articles; track $index) {
+    @if(!articleFromParent.isPublished){
+      <div class="button-container">
+        <button (click)="togglePublication(articleFromParent)">Afficher l'article {{articleFromParent.title}}</button>
+      </div>
+    }
   }
-} @else {
+</div>
+@for (articleFromParent of articles; track $index) {
+  @if (articleFromParent.isPublished) {
+    <app-article-thumbnail [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article-thumbnail>
+  } 
+} @empty {
   <p class="no-article">No article published</p>
 }
 
