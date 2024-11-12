@@ -21,6 +21,13 @@
   transform: translateY(100%); /* La pop-up redescend progressivement */
 }
 
+.card-section{
+  width: 60%;
+}
+
+.button-section{
+  width:40%;
+}
 
 
 .button-container {
@@ -34,6 +41,6 @@
 button {
   padding: 10px 20px;
   font-size: 16px;
-  width: 80%;
+  width: 60%;
   margin-bottom: 1em;
 }

@@ -8,13 +8,16 @@
     }
   }
 </div>
-@for (articleFromParent of articles; track $index) {
-  @if (articleFromParent.isPublished) {
-    <app-article-thumbnail [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article-thumbnail>
-  } 
-} @empty {
-  <p class="no-article">No article published</p>
-}
+
+<div class="card-section">
+  @for (articleFromParent of articles; track $index) {
+    @if (articleFromParent.isPublished) {
+      <app-article-thumbnail [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article-thumbnail>
+    } 
+  } @empty {
+    <p class="no-article">No article published</p>
+  }  
+</div>
 
 <!-- Affichage d'une popup -->
  @if(showPopup){
