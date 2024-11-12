@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, inject } from '@angular/core';
+import { Component, inject, } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Article } from '../../models/Article.model';
 import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-article-page',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './article-page.component.html',
   styleUrl: './article-page.component.scss'
 })

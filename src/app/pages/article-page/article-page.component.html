@@ -1,12 +1,33 @@
 <p>article-page works!</p>
-<!-- <p>Id de l'article : {{articleId}}</p>
-<p>Nom de l'article : {{articleTitle}}</p> -->
-<p>Id de l'article : {{article.id}}</p>
-<p>Nom de l'article : {{article.title}}</p>
-<p>Catégorie de l'article : {{article.categoryName}}</p>
-<p>Image l'article : {{article.image}}</p>
-<p>Nom de l'image de l'article : {{article.imageTitle}}</p>
-<p>Article publié ?: {{article.isPublished}}</p>
-<p>Nombre de likes : {{article.likeCount}}</p>
-<p>Page aimé : {{article.isLiked}}</p>
-<p> Contenu de l'article : {{article.content}}</p>
+
+<div class="article-page">
+  <h1>Détails de l'article</h1>
+  <p><span>Id de l'article :</span> {{article.id}}</p>
+  <p><span>Nom de l'article :</span> {{article.title}}</p>
+  <p><span>Catégorie de l'article :</span> {{article.categoryName}}</p>
+
+  <!-- Image de l'article -->
+   @if(article.image){
+     <img [src]="article.image" alt="{{article.imageTitle}}" class="article-image">
+     <p><span>Nom de l'image de l'article :</span> {{article.imageTitle}}</p>
+   }
+
+  
+  <!-- Statut de publication -->
+  <p><span>Article publié ?</span> 
+    <span [ngClass]="article.isPublished ? 'status published' : 'status unpublished'">
+      {{article.isPublished ? 'Publié' : 'Non publié'}}
+    </span>
+  </p>
+  
+  <p><span>Nombre de likes :</span> {{article.likeCount}}</p>
+
+  <!-- Statut de like -->
+  <p><span>Page aimée ?</span> 
+    <span [ngClass]="article.isLiked ? 'status liked' : 'status unliked'">
+      {{article.isLiked ? 'Aimée' : 'Non aimée'}}
+    </span>
+  </p>
+
+  <p><span>Contenu de l'article :</span> {{article.content}}</p>
+</div>
