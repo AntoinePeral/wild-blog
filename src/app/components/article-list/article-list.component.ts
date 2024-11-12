@@ -31,12 +31,8 @@ export class ArticleListComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.articleListSubscription = this.http.get<Article[]>('http://localhost:3000/articles').subscribe(data =>{
-      this.articles = data;
-      this.isAnyArticlePublished = this.articles.some(article=> article.isPublished === true)
-      console.log("Données reçus", data, this.articles);
-      
-    })
+    this.getArticles();
+   
   }
 
   ngOnDestroy(): void {
@@ -69,8 +65,12 @@ export class ArticleListComponent {
     console.log(article.isPublished);
     console.log(this.isAnyArticlePublished);
   }
-
-  getArticles(): void{
-
+  
+  getArticles(){
+    this.articleListSubscription = this.http.get<Article[]>('http://localhost:3000/articles').subscribe(data =>{
+      this.articles = data;
+      this.isAnyArticlePublished = this.articles.some(article=> article.isPublished === true)
+      console.log("Données reçus", data, this.articles);
+    })
   }
 }
