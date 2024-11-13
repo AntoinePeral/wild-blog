@@ -1,3 +1,4 @@
+import { ApiService } from './../../services/api.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject, } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -14,33 +15,21 @@ import { CommonModule } from '@angular/common';
 })
 export class ArticlePageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
-  articleId!: number;
-
-  // http request
-  private http = inject(HttpClient);
   // Get article by Id
-  article!: Article;
-  articleSubscription!: Subscription;
+  articleId!: number;
+  // Observable article
+  article$!: Observable<Article>;
+  private apiService = inject(ApiService);
+ 
 
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.articleId = Number(params.get('id'));
     });
-   this.getArticleById(this.articleId)
+    this.article$ = this.apiService.getArticleById(this.articleId)
+    console.log(this.article$);
   }
 
-  ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
-    this.articleSubscription.unsubscribe();
-  }
-
-  getArticleById(id: number){
-   this.articleSubscription =this.http.get<Article>(`http://localhost:3000/articles/${id}`).subscribe(data =>{
-    console.log(data);
-    this.article = data;
-   });
-  }
 
 }

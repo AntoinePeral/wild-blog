@@ -1,6 +1,6 @@
 /* Conteneur principal de la page article */
-.article-page {
-  max-width: 600px;
+.article-card {
+  max-width: 400px;
   margin: 20px auto;
   padding: 20px;
   background-color: #f8f8f8;
@@ -8,10 +8,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
   color: #333;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Titre principal */
-.article-page h1 {
+.article-card h1 {
   font-size: 24px;
   color: #007bff;
   margin-bottom: 20px;
@@ -19,23 +21,26 @@
 }
 
 /* Style de chaque ligne d'information */
-.article-page p {
-  margin: 10px 0;
+.article-card p {
+  margin: 5px 0;
   font-size: 16px;
 }
 
-.article-page p span {
+.article-card p span {
   font-weight: bold;
   color: #555;
 }
 
 /* Style pour l'image de l'article */
-.article-page .article-image {
+.article-card .article-image {
   width: 100%;
-  max-height: 300px;
+  height: 100%;
   object-fit: cover;
   border-radius: 8px;
-  margin: 15px 0;
+}
+
+.img-container{
+  height: 300px;
 }
 
 /* Style pour les indicateurs de statut */

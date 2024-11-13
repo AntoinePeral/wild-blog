@@ -1,3 +1,7 @@
+app-article-thumbnail{
+  width: 50%;
+}
+
 // Popup css
 .notification{
   position: fixed;
@@ -22,11 +26,13 @@
 }
 
 .card-section{
-  width: 60%;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .button-section{
-  width:40%;
+  width:30%;
 }
 
 
@@ -41,6 +47,7 @@
 button {
   padding: 10px 20px;
   font-size: 16px;
-  width: 60%;
+  width: 80%;
   margin-bottom: 1em;
+  margin: auto;
 }

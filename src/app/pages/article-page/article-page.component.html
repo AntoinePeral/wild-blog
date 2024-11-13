@@ -1,33 +1,36 @@
 <p>article-page works!</p>
-
-<div class="article-page">
-  <h1>Détails de l'article</h1>
-  <p><span>Id de l'article :</span> {{article.id}}</p>
-  <p><span>Nom de l'article :</span> {{article.title}}</p>
-  <p><span>Catégorie de l'article :</span> {{article.categoryName}}</p>
-
-  <!-- Image de l'article -->
-   @if(article.image){
-     <img [src]="article.image" alt="{{article.imageTitle}}" class="article-image">
-     <p><span>Nom de l'image de l'article :</span> {{article.imageTitle}}</p>
-   }
-
+@if(article$|async; as article){
+  <div class="article-card">
+    <h1>Détails de l'article</h1>
+    <p><span>Id de l'article :</span> {{article.id}}</p>
+    <p><span>Nom de l'article :</span> {{article.title}}</p>
+    <p><span>Catégorie de l'article :</span> {{article.categoryName}}</p>
   
-  <!-- Statut de publication -->
-  <p><span>Article publié ?</span> 
-    <span [ngClass]="article.isPublished ? 'status published' : 'status unpublished'">
-      {{article.isPublished ? 'Publié' : 'Non publié'}}
-    </span>
-  </p>
+    <!-- Image de l'article -->
+     @if(article.image){
+      <div class="img-container">
+        <img [src]="article.image" alt="{{article.imageTitle}}" class="article-image">
+      </div>
+     }
   
-  <p><span>Nombre de likes :</span> {{article.likeCount}}</p>
-
-  <!-- Statut de like -->
-  <p><span>Page aimée ?</span> 
-    <span [ngClass]="article.isLiked ? 'status liked' : 'status unliked'">
-      {{article.isLiked ? 'Aimée' : 'Non aimée'}}
-    </span>
-  </p>
-
-  <p><span>Contenu de l'article :</span> {{article.content}}</p>
-</div>
+    
+    <!-- Statut de publication -->
+    <p><span>Article publié ?</span> 
+      <span [ngClass]="article.isPublished ? 'status published' : 'status unpublished'">
+        {{article.isPublished ? 'Publié' : 'Non publié'}}
+      </span>
+    </p>
+    
+    <p><span>Nombre de likes :</span> {{article.likeCount}}</p>
+  
+    <!-- Statut de like -->
+    <p><span>Page aimée ?</span> 
+      <span [ngClass]="article.isLiked ? 'status liked' : 'status unliked'">
+        {{article.isLiked ? 'Aimée' : 'Non aimée'}}
+      </span>
+    </p>
+  
+    <p><span>Contenu de l'article :</span> {{article.content}}</p>
+  </div>
+  
+}

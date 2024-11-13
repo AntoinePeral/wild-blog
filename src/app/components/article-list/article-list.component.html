@@ -1,6 +1,6 @@
 
 <div class="button-section">
-@for (articleFromParent of articles; track $index) {
+@for (articleFromParent of articles$ | async; track $index) {
     @if(!articleFromParent.isPublished){
       <div class="button-container">
         <button (click)="togglePublication(articleFromParent)">Afficher l'article {{articleFromParent.title}}</button>
@@ -10,7 +10,7 @@
 </div>
 
 <div class="card-section">
-  @for (articleFromParent of articles; track $index) {
+  @for (articleFromParent of articles$ | async; track $index) {
     @if (articleFromParent.isPublished) {
       <app-article-thumbnail [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article-thumbnail>
     } 

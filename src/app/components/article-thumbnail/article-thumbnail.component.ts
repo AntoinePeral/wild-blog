@@ -29,6 +29,8 @@ export class ArticleThumbnailComponent {
   }
 
   togglePublication(): void {
+    console.log('toggle du component');
+
     this.article.isPublished = !this.article.isPublished;
   }
 
