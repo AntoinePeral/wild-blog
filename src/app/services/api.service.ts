@@ -8,8 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  private apiUrl = 'http://localhost:3000/articles';
-  private http = inject(HttpClient);
+  private apiUrl : string = 'http://localhost:3000/articles';
+  private http: HttpClient = inject(HttpClient);
   constructor() { }
 
   getArticles(): Observable<Article[]>{
