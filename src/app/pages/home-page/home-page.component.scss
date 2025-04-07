@@ -8,12 +8,23 @@
   font-family: Arial, sans-serif;
 }
 
-h1{
+h1 {
   text-align: center;
-  color: #333;
+  color: #7dbf7e; /* Couleur vert pastel doux (vert sauge clair) */
   margin-bottom: 20px;
   font-size: 2.5em;
+  font-family: 'Arial', sans-serif;
+  text-transform: capitalize; /* Capitalisation du texte pour un style plus raffiné */
+  transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out; /* Transition douce pour la couleur et l'ombre */
 }
+
+/* Effet au survol du titre */
+h1:hover {
+  color: #a0d9a2; /* Couleur vert pastel plus clair au survol */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet de profondeur */
+}
+
+
 
 app-article-list {
   width: 100%;

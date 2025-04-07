@@ -2,8 +2,20 @@
   <ul>
     <li><a [routerLink]="['/']">Home</a></li>
     <li><a [routerLink]="['/contact']">Page de contact</a></li>
+    @if (!isLogged()) {
     <li><a [routerLink]="['/signup']">Page d'inscription</a></li>
+    <li><a [routerLink]="['/login']">Page de login</a></li>
+    }
     <li><a [routerLink]="['/404page']">404</a></li>
+    @if (isLogged() && isUser()) {
+      <li><a [routerLink]="['/profile']">Mon profile</a></li>
+    }
+    @if (isLogged() && isAdmin()) {
+      <li><a [routerLink]="['/admin']">Admin</a></li>
+    }
+    @if (isLogged() && isUser()) {
+      <li><a (click)="logOut()">Se déconnecter</a></li>
+    }
   </ul>
 </nav>
 <router-outlet></router-outlet>

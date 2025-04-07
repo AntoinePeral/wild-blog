@@ -1,12 +1,11 @@
-
-
 /* Barre de navigation */
 ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #a0d9a2; /* Vert pastel doux pour le fond */
+  border-radius: 8px; /* Bordure arrondie pour une touche plus douce */
 }
 
 li {
@@ -15,13 +14,23 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: #ffffff; /* Couleur du texte blanc pour un bon contraste */
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s, color 0.3s; /* Transition douce pour l'hover */
+  border-radius: 4px; /* Bordure arrondie des liens pour une meilleure ergonomie */
 }
 
-/* Change the link color to #111 (black) on hover */
+/* Effet au survol (hover) */
 li a:hover {
-  background-color: #111;
+  background-color: #7dbf7e; /* Couleur vert pastel plus foncé au survol */
+  color: #fff; /* Le texte reste blanc pour le contraste */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet de survol */
+}
+
+/* Ajouter un effet au survol de l'élément de navigation */
+li:hover {
+  background-color: #a0d9a2; /* Fond vert pastel doux au survol du menu */
 }

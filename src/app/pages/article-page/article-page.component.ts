@@ -15,13 +15,14 @@ import { CommonModule } from '@angular/common';
 })
 export class ArticlePageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
+
   // Get article by Id
   articleId!: number;
+
   // Observable article
   article$!: Observable<Article>;
   private apiService = inject(ApiService);
  
-
 
   ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {

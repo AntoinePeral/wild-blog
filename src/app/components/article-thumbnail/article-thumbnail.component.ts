@@ -24,8 +24,11 @@ export class ArticleThumbnailComponent {
     this.dataEmitFromChild.emit(`l'article "${this.article.title}" vient d'être liké ❤`);
   }
 
-  goToArticleDetails(articleId: number, articleTitle: string){
-    this.router.navigate(['/article',articleId, articleTitle])
+  // goToArticleDetailsWithTitle(articleId: number, articleTitle: string){
+  //   this.router.navigate(['/articles',articleId, articleTitle])
+  // }
+  goToArticleDetails(articleId: number){
+    this.router.navigate(['/articles',articleId])
   }
 
   togglePublication(): void {

@@ -8,7 +8,7 @@
            <h2 
            [ngClass]="{'popular-article': article.likeCount > 100}" 
            [ngStyle]="{'color': article.likeCount > 150 ? 'green' : 'black'}"
-           (click)="goToArticleDetails(article.id, article.title)">
+           (click)="goToArticleDetails(article.id)">
            {{article.title}}
           </h2>
           <div class="details_block">

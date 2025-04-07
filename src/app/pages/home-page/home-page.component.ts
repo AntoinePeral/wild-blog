@@ -5,18 +5,16 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import {articles} from '../../data/dataArticles'
 import { ArticleListComponent } from '../../components/article-list/article-list.component';
+import { LoginFormComponent } from '../../components/login-form/login-form.component';
 
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink, ArticleListComponent],
+  imports: [FormsModule, CommonModule, ArticleListComponent],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss'
 })
 export class HomePageComponent {
   title = 'Bienvenue sur le Wild Blog de Antoine!';
-
-
-
 }
