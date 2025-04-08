@@ -14,7 +14,7 @@
       <li><a [routerLink]="['/admin']">Admin</a></li>
     }
     @if (isLogged() && isUser()) {
-      <li><a (click)="logOut()">Se déconnecter</a></li>
+      <li><a (click)="logout()">Se déconnecter</a></li>
     }
   </ul>
 </nav>

@@ -53,9 +53,8 @@ export class AppComponent {
     return false;
   }
 
-  logOut(){
-    this.authService.clearToken();
-    this.router.navigate(['/'])
+  logout(){
+    this.authService.logout();
   }
 
 }
