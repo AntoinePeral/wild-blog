@@ -29,7 +29,7 @@ export class ArticleListComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.articles$ = this.apiService.getArticles();   
+    this.articles$ = this.apiService.getArticles();
   }
 
 
@@ -38,7 +38,7 @@ export class ArticleListComponent {
     this.showPopup = true;
     this.messageFromChild = message;
     console.log(this.messageFromChild);
-    
+
 
     // Après 5 secondes, appliquer la classe pour cacher progressivement
     setTimeout(() => {
@@ -48,21 +48,10 @@ export class ArticleListComponent {
     // Après un peu plus de temps, masquer la pop-up complètement
     setTimeout(() => {
       this.showPopup = false; // Masquer complètement la pop-up
-    }, 6000); // 1 
+    }, 6000); // 1
   }
 
-  togglePublication(article: Article): void {
-    console.log(article.isPublished,"je suis dans le toggle");
-    console.log("id : ",article.id);
-    article.isPublished = !article.isPublished;
-    console.log(article.isPublished,"je suis dans le toggle2");
-    console.log("article apres l'update", article);
-    this.apiService.updateArticleById(article.id, article).subscribe({
 
-    })
-    // this.articles$ = this.apiService.getArticles();
-    console.log(article.isPublished);
-  }
-  
+
 
 }

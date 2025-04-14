@@ -1,22 +1,22 @@
 
 <div class="button-section">
-@for (articleFromParent of articles$ | async; track $index) {
-    @if(!articleFromParent.isPublished){
+@for (article of articles$ | async; track $index) {
+    @if(!article.published){
       <div class="button-container">
-        <button (click)="togglePublication(articleFromParent)">Afficher l'article {{articleFromParent.title}}</button>
+        <button (click)="togglePublication(article)">Afficher l'article {{article.title}}</button>
       </div>
     }
   }
 </div>
 
 <div class="card-section">
-  @for (articleFromParent of articles$ | async; track $index) {
-    @if (articleFromParent.isPublished) {
-      <app-article-thumbnail [article]="articleFromParent" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article-thumbnail>
-    } 
+  @for (article of articles$ | async; track $index) {
+    @if (article.published) {
+      <app-article-thumbnail [article]="article" (dataEmitFromChild)="dataRecieveFromChild($event)"></app-article-thumbnail>
+    }
   } @empty {
     <p class="no-article">No article published</p>
-  }  
+  }
 </div>
 
 <!-- Affichage d'une popup -->

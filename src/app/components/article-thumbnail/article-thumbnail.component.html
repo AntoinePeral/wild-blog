@@ -1,7 +1,7 @@
-@if (!article.isPublished){
+@if (!article.published){
   <button (click)="togglePublication()">Afficher l'article : {{article.title}}</button>
 }
-   @if (article.isPublished) {
+   @if (article.published) {
      <div class="container">
        <div class="card">
          <div class="text_block">

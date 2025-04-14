@@ -3,9 +3,10 @@ export interface Article{
   title: string;
   author:  string;
   content: string;
-  imageUrls:  string;
+  imageUrls:  string[];
+  imageIds:  number[];
   imageTitle:  string;
-  isPublished: boolean;
+  published: boolean;
   comment:  string;
   isLiked: true;
   likeCount: number;
