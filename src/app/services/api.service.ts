@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  private apiUrl : string = 'http://localhost:3000/articles';
+  private apiUrl : string = 'http://localhost:8080/articles';
   private http: HttpClient = inject(HttpClient);
   constructor() { }
 
@@ -18,6 +18,11 @@ export class ApiService {
 
   getArticleById(id: number): Observable<Article>{
     return this.http.get<Article>(`${this.apiUrl}/${id}`)
+   }
+
+   updateArticleById(id: number, articleData: Article): Observable<Article>{
+    return this.http
+    .put<Article>(`${this.apiUrl}/${id}`, articleData)
    }
  
 }

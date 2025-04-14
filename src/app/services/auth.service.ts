@@ -19,6 +19,7 @@ export class AuthService {
       .pipe(
         tap((token) => {
           this.saveToken(token);
+          console.log(token)
         })
       );
   }
@@ -57,7 +58,6 @@ export class AuthService {
     if (!token) return null;
     try {
       const decodedToken: any = jwtDecode(token);
-      console.log(decodedToken)
       return decodedToken.roles || null;
     } catch {
       return null;

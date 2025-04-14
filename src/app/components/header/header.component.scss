@@ -1,0 +1,82 @@
+/* Réinitialisation des marges et des paddings pour la liste */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Conteneur principal de la navigation */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #a0d9a2; /* Vert pastel doux pour le fond */
+  border-radius: 8px; /* Bordure arrondie pour une touche plus douce */
+  padding: 0 20px;
+}
+
+/* Section gauche - Nom de l'utilisateur */
+.nav-left {
+  flex: 1;
+}
+
+.user-name {
+  color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+}
+
+/* Section centrale - Liens de navigation */
+.nav-center {
+  display: flex;
+  justify-content: center;
+  flex: 2;
+}
+
+.nav-center li {
+  margin: 0 10px;
+}
+
+.nav-center a {
+  display: block;
+  color: #ffffff; /* Couleur du texte blanc pour un bon contraste */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+  transition: background-color 0.3s, color 0.3s; /* Transition douce pour l'hover */
+  border-radius: 4px; /* Bordure arrondie des liens pour une meilleure ergonomie */
+}
+
+/* Effet au survol (hover) */
+.nav-center a:hover {
+  background-color: #7dbf7e; /* Couleur vert pastel plus foncé au survol */
+  color: #fff; /* Le texte reste blanc pour le contraste */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Ombre douce pour un effet de survol */
+}
+
+/* Section droite - Boutons */
+.nav-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.nav-right button,
+.nav-right a {
+  background-color: #ffffff;
+  color: #a0d9a2;
+  border: none;
+  padding: 4px 16px;
+  margin-left: 10px;
+  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.nav-right button:hover,
+.nav-right a:hover {
+  background-color: #7dbf7e;
+  color: #fff;
+}

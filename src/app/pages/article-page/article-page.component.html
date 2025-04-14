@@ -7,16 +7,16 @@
     <p><span>Catégorie de l'article :</span> {{article.categoryName}}</p>
   
     <!-- Image de l'article -->
-     @if(article.image){
+     @if(article.imageUrls){
       <div class="img-container">
-        <img [src]="article.image" alt="{{article.imageTitle}}" class="article-image">
+        <img [src]="article.imageUrls" alt="{{article.imageTitle}}" class="article-image">
       </div>
      }
   
     
     <!-- Statut de publication -->
     <p><span>Article publié ?</span> 
-      <span [ngClass]="article.isPublished ? 'status published' : 'status unpublished'">
+      <span [ngClass]="article ? 'status published' : 'status unpublished'">
         {{article.isPublished ? 'Publié' : 'Non publié'}}
       </span>
     </p>

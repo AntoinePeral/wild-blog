@@ -29,8 +29,7 @@ export class ArticleListComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
-    this.articles$ = this.apiService.getArticles();
-   
+    this.articles$ = this.apiService.getArticles();   
   }
 
 
@@ -53,9 +52,15 @@ export class ArticleListComponent {
   }
 
   togglePublication(article: Article): void {
-    console.log(article,"je suis dans le toggle");
-    
+    console.log(article.isPublished,"je suis dans le toggle");
+    console.log("id : ",article.id);
     article.isPublished = !article.isPublished;
+    console.log(article.isPublished,"je suis dans le toggle2");
+    console.log("article apres l'update", article);
+    this.apiService.updateArticleById(article.id, article).subscribe({
+
+    })
+    // this.articles$ = this.apiService.getArticles();
     console.log(article.isPublished);
   }
   

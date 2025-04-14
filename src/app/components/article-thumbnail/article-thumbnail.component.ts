@@ -20,7 +20,7 @@ export class ArticleThumbnailComponent {
 
   sendDataToParent(){
     console.log('hola');
-    this.article.isLiked++;
+    this.article.likeCount++;
     this.dataEmitFromChild.emit(`l'article "${this.article.title}" vient d'être liké ❤`);
   }
 
@@ -34,7 +34,7 @@ export class ArticleThumbnailComponent {
   togglePublication(): void {
     console.log('toggle du component');
 
-    this.article.isPublished = !this.article.isPublished;
+    // this.article.isPublished = !this.article.isPublished;
   }
 
   onSubmit(){
