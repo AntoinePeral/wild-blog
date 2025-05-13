@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, provideRouter } from '@angular/router';
 import { of } from 'rxjs';
 import { ArticlePageComponent } from './article-page.component';
 import { ApiService } from '../../services/api.service';
@@ -10,12 +10,14 @@ import { HttpClientModule } from '@angular/common/http'; // Si besoin de HttpCli
 describe('ArticlePageComponent', () => {
   let component: ArticlePageComponent;
   let fixture: ComponentFixture<ArticlePageComponent>;
+  let toastrService: ToastrService; // <--- ici
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [ArticlePageComponent], // Standalone component !
       providers: [
         // Mock ActivatedRoute to simulate /articles/1
+        provideRouter([]),
         {
           provide: ActivatedRoute,
           useValue: {
@@ -33,9 +35,10 @@ describe('ArticlePageComponent', () => {
               title: 'Mock Article',
               author: 'Author',
               content: 'Lorem ipsum',
-              imageUrls: '',
+              imageUrls: [],
+              imageIds: [],
               imageTitle: '',
-              isPublished: true,
+              published: true,
               comment: '',
               isLiked: true,
               likeCount: 0,
@@ -54,6 +57,7 @@ describe('ArticlePageComponent', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(ArticlePageComponent);
+    toastrService = TestBed.inject(ToastrService); // <-- déplacement ici
     component = fixture.componentInstance;
     fixture.detectChanges(); // Call ngOnInit
   });
@@ -68,6 +72,7 @@ describe('ArticlePageComponent', () => {
     component.article$.subscribe(article => {
       expect(article.id).toBe(1);
       expect(article.title).toBe('Mock Article');
+      expect(toastrService.success).toHaveBeenCalled(); // Vérifie le toast
       done();
     });
   });
