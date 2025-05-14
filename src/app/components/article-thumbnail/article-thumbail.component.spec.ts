@@ -1,7 +1,6 @@
-import { RouterTestingModule } from '@angular/router/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ArticleThumbnailComponent } from './article-thumbnail.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, provideRouter } from '@angular/router';
 
 describe('ArticleThumbailComponent', () => {
   let component: ArticleThumbnailComponent;
@@ -9,7 +8,10 @@ describe('ArticleThumbailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ArticleThumbnailComponent, RouterTestingModule],
+      imports: [ArticleThumbnailComponent],
+      providers:[
+        provideRouter([]),
+      ]
     })
     .compileComponents();
 
